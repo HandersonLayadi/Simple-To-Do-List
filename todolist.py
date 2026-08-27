@@ -1,6 +1,14 @@
-#Task data 
+#Task data (JSON)
 
-tasks = []
+import json
+import os 
+
+if os.path.exists("tasks.json") : 
+    with open ("tasks.json", "r") as file : 
+        tasks = json.load(file)
+
+else : 
+    tasks = []
 
 #Menu 
 
