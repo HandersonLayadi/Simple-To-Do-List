@@ -7,6 +7,7 @@ window = tk.Tk()
 window.title ("To Do List")
 window.geometry("500x600")
 
+#Add Task 
 def add_task():
     task = task_entry.get()
     
@@ -15,10 +16,26 @@ def add_task():
     
     task_list.insert(tk.END, task)
     
+    task_entry.delete(0, tk.END)
+    
+#Load Task
 def load_tasks():
     for task in todolist.tasks:
         task_list.insert(tk.END, task)
     
+#Remove Task 
+def remove_task():
+    
+    selected = task_list.curselection()
+            
+    if selected :
+                index = selected[0]
+                todolist.tasks.pop (index)
+                todolist.save_tasks()
+                
+                task_list.delete(index)
+
+
 
 #GUI Title
 title = tk.Label (
@@ -51,6 +68,14 @@ add_button = tk.Button(
     command = add_task
 )
 add_button.pack()
+
+#Button : Remove Task 
+remove_button = tk.Button(
+    window,
+    text = "Remove Task",
+    command = remove_task
+)
+remove_button.pack ()
 
 window.mainloop() 
 
