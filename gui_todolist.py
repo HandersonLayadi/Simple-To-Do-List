@@ -35,6 +35,7 @@ def remove_task():
                 
                 task_list.delete(index)
 
+#Edit Task 
 def edit_task() : 
     selected = task_list.curselection()
     
@@ -51,6 +52,10 @@ def edit_task() :
             task_list.insert(index, new_task)
             
             task_entry.delete(0, tk.END)
+
+#Exit Window 
+def exit_app () : 
+    window.destroy()
 
 #GUI Title
 title = tk.Label (
@@ -99,6 +104,15 @@ edit_button = tk.Button(
     command = edit_task
 )
 edit_button.pack()
+
+#Button : Exit App 
+exit_button = tk.Button(
+    window, 
+    text = "Exit",
+    command = exit_app
+)
+exit_button.pack()
+
 
 window.mainloop() 
 
