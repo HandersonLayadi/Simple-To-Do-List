@@ -35,7 +35,22 @@ def remove_task():
                 
                 task_list.delete(index)
 
-
+def edit_task() : 
+    selected = task_list.curselection()
+    
+    if selected : 
+        index = selected[0]
+        
+        new_task = task_entry.get()
+        
+        if new_task : 
+            todolist.tasks[index] = new_task
+            todolist.save_tasks()
+            
+            task_list.delete(index)
+            task_list.insert(index, new_task)
+            
+            task_entry.delete(0, tk.END)
 
 #GUI Title
 title = tk.Label (
@@ -76,6 +91,14 @@ remove_button = tk.Button(
     command = remove_task
 )
 remove_button.pack ()
+
+#Button : Edit Task 
+edit_button = tk.Button(
+    window,
+    text = "Edit Task",
+    command = edit_task
+)
+edit_button.pack()
 
 window.mainloop() 
 
