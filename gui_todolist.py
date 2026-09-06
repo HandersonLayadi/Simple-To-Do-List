@@ -67,8 +67,11 @@ title = tk.Label (
 title.pack ()
 
 #GUI Entry 
-task_entry = tk.Entry(window)
-task_entry.pack()
+task_entry = tk.Entry(
+    window, 
+    width = 50
+)
+task_entry.pack(pady = 10)
 
 # Task List
 task_list = tk.Listbox(
@@ -81,9 +84,12 @@ task_list.pack()
 
 load_tasks()
 
+button_frame = tk.Frame(window)
+button_frame.pack()
+
 #Button : Add Task 
 add_button = tk.Button(
-    window,
+    button_frame,
     text = "Add Task",
     command = add_task
 )
@@ -91,7 +97,7 @@ add_button.pack()
 
 #Button : Remove Task 
 remove_button = tk.Button(
-    window,
+    button_frame,
     text = "Remove Task",
     command = remove_task
 )
@@ -99,7 +105,7 @@ remove_button.pack ()
 
 #Button : Edit Task 
 edit_button = tk.Button(
-    window,
+    button_frame,
     text = "Edit Task",
     command = edit_task
 )
@@ -111,8 +117,13 @@ exit_button = tk.Button(
     text = "Exit",
     command = exit_app
 )
+
 exit_button.pack()
-
-
+add_button.pack(side=tk.LEFT, padx = 5)
+remove_button.pack(side=tk.LEFT, padx = 5)
+edit_button.pack(side=tk.LEFT, padx = 5)
+task_entry.pack(pady = 10)
+task_list.pack(pady = 10)
+exit_button.pack(pady = 10)
 window.mainloop() 
 
