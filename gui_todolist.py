@@ -29,12 +29,11 @@ def remove_task():
     selected = task_list.curselection()
             
     if selected :
-                index = selected[0]
-                todolist.tasks.pop (index)
-                todolist.save_tasks()
-                
+            for index in reversed(selected) : 
+                todolist.tasks.pop(index)
                 task_list.delete(index)
-
+                
+            todolist.save_tasks()
 #Edit Task 
 def edit_task() : 
     selected = task_list.curselection()
@@ -80,7 +79,8 @@ list_frame.pack(pady = 10)
 task_list = tk.Listbox(
     list_frame,
     width=60,
-    height=20
+    height=20,
+    selectmode=tk.MULTIPLE
 )
 
 task_list.pack(side=tk.LEFT)
