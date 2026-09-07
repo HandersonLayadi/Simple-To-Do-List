@@ -73,14 +73,27 @@ task_entry = tk.Entry(
 )
 task_entry.pack(pady = 10)
 
+list_frame = tk.Frame(window)
+list_frame.pack(pady = 10)
+
 # Task List
 task_list = tk.Listbox(
-    window,
+    list_frame,
     width=60,
     height=20
 )
 
-task_list.pack()
+task_list.pack(side=tk.LEFT)
+
+#Scrollbar
+scrollbar = tk.Scrollbar(list_frame)
+
+scrollbar.pack(side=tk.RIGHT, fill=tk.Y)
+
+#Connecting Task List to Scrollbar
+task_list.config(yscrollcommand=scrollbar.set)
+
+scrollbar.config(command=task_list.yview)
 
 load_tasks()
 
@@ -93,7 +106,7 @@ add_button = tk.Button(
     text = "Add Task",
     command = add_task
 )
-add_button.pack()
+add_button.pack(side=tk.LEFT, padx = 5)
 
 #Button : Remove Task 
 remove_button = tk.Button(
@@ -101,7 +114,7 @@ remove_button = tk.Button(
     text = "Remove Task",
     command = remove_task
 )
-remove_button.pack ()
+remove_button.pack (side=tk.LEFT, padx = 5)
 
 #Button : Edit Task 
 edit_button = tk.Button(
@@ -109,7 +122,7 @@ edit_button = tk.Button(
     text = "Edit Task",
     command = edit_task
 )
-edit_button.pack()
+edit_button.pack(side=tk.LEFT, padx = 5)
 
 #Button : Exit App 
 exit_button = tk.Button(
@@ -118,12 +131,7 @@ exit_button = tk.Button(
     command = exit_app
 )
 
-exit_button.pack()
-add_button.pack(side=tk.LEFT, padx = 5)
-remove_button.pack(side=tk.LEFT, padx = 5)
-edit_button.pack(side=tk.LEFT, padx = 5)
-task_entry.pack(pady = 10)
-task_list.pack(pady = 10)
-exit_button.pack(pady = 10)
+exit_button.pack(padx = 10, pady = 10)
+
 window.mainloop() 
 
