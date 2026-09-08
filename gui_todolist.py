@@ -6,6 +6,7 @@ window = tk.Tk()
 
 window.title ("To Do List")
 window.geometry("500x600")
+window.configure(bg="#C4C2C2")
 
 #Add Task 
 def add_task():
@@ -81,6 +82,7 @@ task_list = tk.Listbox(
     list_frame,
     width=60,
     height=15,
+    bg = "#F5F7FA",
     selectmode=tk.MULTIPLE
 )
 
@@ -98,7 +100,9 @@ scrollbar.config(command=task_list.yview)
 
 load_tasks()
 
-button_frame = tk.Frame(window)
+button_frame = tk.Frame(
+    window,
+    )
 button_frame.pack()
 
 #Button : Add Task 
@@ -106,7 +110,8 @@ add_button = tk.Button(
     button_frame,
     text = "Add Task",
     command = add_task,
-    width = 10
+    width = 10,
+    bg = "#4F994B"
 )
 add_button.pack(side=tk.LEFT, padx = 5)
 
@@ -115,7 +120,8 @@ remove_button = tk.Button(
     button_frame,
     text = "Remove Task",
     command = remove_task,
-    width = 10
+    width = 10,
+    bg = "#EF4444"
 )
 remove_button.pack (side=tk.LEFT, padx = 5)
 
@@ -124,7 +130,8 @@ edit_button = tk.Button(
     button_frame,
     text = "Edit Task",
     command = edit_task,
-    width = 10
+    width = 10,
+    bg = "#2ABCD1"
 )
 edit_button.pack(side=tk.LEFT, padx = 5)
 
@@ -133,7 +140,8 @@ exit_button = tk.Button(
     window, 
     text = "Exit",
     command = exit_app,
-    width = 10
+    width = 10,
+    bg = "#9C9C9C"
 )
 
 exit_button.pack(padx = 10, pady = 10)
