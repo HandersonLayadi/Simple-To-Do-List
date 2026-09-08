@@ -60,15 +60,16 @@ def exit_app () :
 title = tk.Label (
     window, 
     text = "To Do List",
-    font = ("Arial", 20)
+    font = ("Arial", 24, "bold")
 )
 
-title.pack ()
+title.pack ( pady = 10)
 
 #GUI Entry 
 task_entry = tk.Entry(
     window, 
-    width = 50
+    width = 35,
+    font = ("Arial", 14)
 )
 task_entry.pack(pady = 10)
 
@@ -79,7 +80,7 @@ list_frame.pack(pady = 10)
 task_list = tk.Listbox(
     list_frame,
     width=60,
-    height=20,
+    height=15,
     selectmode=tk.MULTIPLE
 )
 
@@ -104,7 +105,8 @@ button_frame.pack()
 add_button = tk.Button(
     button_frame,
     text = "Add Task",
-    command = add_task
+    command = add_task,
+    width = 10
 )
 add_button.pack(side=tk.LEFT, padx = 5)
 
@@ -112,7 +114,8 @@ add_button.pack(side=tk.LEFT, padx = 5)
 remove_button = tk.Button(
     button_frame,
     text = "Remove Task",
-    command = remove_task
+    command = remove_task,
+    width = 10
 )
 remove_button.pack (side=tk.LEFT, padx = 5)
 
@@ -120,7 +123,8 @@ remove_button.pack (side=tk.LEFT, padx = 5)
 edit_button = tk.Button(
     button_frame,
     text = "Edit Task",
-    command = edit_task
+    command = edit_task,
+    width = 10
 )
 edit_button.pack(side=tk.LEFT, padx = 5)
 
@@ -128,7 +132,8 @@ edit_button.pack(side=tk.LEFT, padx = 5)
 exit_button = tk.Button(
     window, 
     text = "Exit",
-    command = exit_app
+    command = exit_app,
+    width = 10
 )
 
 exit_button.pack(padx = 10, pady = 10)
